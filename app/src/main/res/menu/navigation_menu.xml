@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menuHome"
+        android:icon="@drawable/ic_home"
+        android:title="@string/home" />
+
+    <item
+        android:id="@+id/menuSaved"
+        android:icon="@drawable/ic_bookmarks"
+        android:title="@string/saved" />
+
+    <item
+        android:id="@+id/menuHistory"
+        android:icon="@drawable/ic_history"
+        android:title="@string/history" />
+
+    <item
+        android:id="@+id/menuInformation"
+        android:icon="@drawable/ic_info"
+        android:title="@string/information" />
+
+    <item android:title="@string/support">
+
+        <menu>
+
+            <item
+                android:id="@+id/menuSubmit"
+                android:icon="@drawable/ic_assignment"
+                android:title="@string/submit"
+                />
+
+            <item
+                android:id="@+id/menuFeedback"
+                android:icon="@drawable/ic_feedback"
+                android:title="@string/feedback"
+                />
+
+
+        </menu>
+
+    </item>
+
+</menu>

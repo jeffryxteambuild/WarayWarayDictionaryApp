@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".HomeFragment">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@color/burlywood" >
+
+    <AutoCompleteTextView
+        android:id="@+id/search_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/white"
+        android:clickable="true"
+        android:focusable="true"
+        android:drawablePadding="5dp"
+        android:hint="Search"
+        android:padding="7dp"
+        android:inputType="text"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <GridLayout
+        android:id="@+id/phrase_gridview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="100sp"
+        android:layout_marginRight="20sp"
+        android:layout_marginLeft="20sp"
+        android:layout_marginBottom="20sp"
+        android:rowCount="5"
+        android:columnCount="2">
+
+
+        <Button
+            android:id="@+id/button_converse"
+            android:layout_gravity="fill"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="5sp"
+            android:background="@color/burlywood"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:text="@string/dialogue"
+            />
+
+        <Button
+            android:id="@+id/button_greetings"
+            android:layout_gravity="fill"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="5sp"
+            android:background="@color/burlywood"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:text="@string/greet"
+            />
+
+        <Button
+            android:id="@+id/button_directions"
+            android:layout_gravity="fill"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="5sp"
+            android:background="@color/burlywood"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:text="@string/directions"
+            />
+
+        <Button
+            android:id="@+id/button_food"
+            android:layout_gravity="fill"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="5sp"
+            android:background="@color/burlywood"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:text="@string/food"
+            />
+
+        <Button
+            android:id="@+id/button_time"
+            android:layout_gravity="fill"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="5sp"
+            android:background="@color/burlywood"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:text="@string/time"
+            />
+
+        <Button
+            android:id="@+id/button_family"
+            android:layout_gravity="fill"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="5sp"
+            android:background="@color/burlywood"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:text="@string/family"
+            />
+
+        <Button
+            android:id="@+id/button_numbers"
+            android:layout_gravity="fill"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="5sp"
+            android:background="@color/burlywood"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:text="@string/numbers"
+            />
+
+        <Button
+            android:id="@+id/button_colors"
+            android:layout_gravity="fill"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="5sp"
+            android:background="@color/burlywood"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:text="@string/colors"
+            />
+
+        <Button
+            android:id="@+id/button_emergency"
+            android:layout_gravity="fill"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="5sp"
+            android:background="@color/burlywood"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:text="@string/emergency"
+            />
+
+        <Button
+            android:id="@+id/button_sick"
+            android:layout_gravity="fill"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="5sp"
+            android:background="@color/burlywood"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:text="@string/sick"
+            />
+
+    </GridLayout>
+
+</FrameLayout>

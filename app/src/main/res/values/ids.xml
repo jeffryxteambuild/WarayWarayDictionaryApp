@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="button_converse" type="id" />
+    <item name="button_greetings" type="id" />
+    <item name="button_directions" type="id" />
+    <item name="button_travel" type="id" />
+    <item name="button_time" type="id" />
+    <item name="button_family" type="id" />
+    <item name="button_numbers" type="id" />
+    <item name="button_colors" type="id" />
+    <item name="button_emergency" type="id" />
+    <item name="button_sick" type="id" />
+</resources>

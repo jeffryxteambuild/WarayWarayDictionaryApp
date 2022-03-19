@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Waray-Waray Dictionary</string>
+    <string name="home">Home</string>
+    <string name="saved">Saved</string>
+    <string name="history">History</string>
+    <string name="information">Information</string>
+    <string name="support">Support</string>
+    <string name="submit">Submit Dictionary Entry</string>
+    <string name="feedback">Feedback</string>
+    <string name="dialogue">Dialogue</string>
+    <string name="greet">Greetings</string>
+    <string name="directions">Directions</string>
+    <string name="food">Food</string>
+    <string name="time">Time</string>
+    <string name="family">Family</string>
+    <string name="numbers">Numbers</string>
+    <string name="colors">Colors</string>
+    <string name="emergency">Emergency</string>
+    <string name="sick">Feeling Sick</string>
+
+    <string name="info_app">ABOUT THE APP</string>
+    <string name="info_student">ABOUT THE PROPONENTS</string>
+
+    <string name="AppInfo_body"> This application is developed by the BSIT-4TH YEAR students as a final requirement for the degree BACHELOR OF SCIENCE IN INFORMATION TECHNOLOGY.</string>
+    <string name="AppInfo_body2"> This application was built to assist learners and teachers in learning and teaching WARAY-WARAY and be of assistance to non-speakers when communicating with the locals of Region 8 using the said language. </string>
+
+</resources>

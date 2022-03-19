@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    app:startDestination="@id/menuHome">
+
+    <fragment
+        android:id="@+id/menuHome"
+        android:name="com.example.dictionary.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/menuSaved"
+        android:name="com.example.dictionary.SavedFragment"
+        android:label="Saved"
+        tools:layout="@layout/fragment_saved" />
+    <fragment
+        android:id="@+id/menuHistory"
+        android:name="com.example.dictionary.HistoryFragment"
+        android:label="History"
+        tools:layout="@layout/fragment_history" />
+    <fragment
+        android:id="@+id/menuInformation"
+        android:name="com.example.dictionary.InformationFragment"
+        android:label="Information"
+        tools:layout="@layout/fragment_information" />
+
+    <activity
+        android:id="@+id/menuSubmit"
+        android:name="com.example.dictionary.Website"
+        android:label="Website"
+        tools:layout="@layout/activity_website"/>
+
+    <activity
+        android:id="@+id/menuFeedback"
+        android:name="com.example.dictionary.feedback"
+        android:label="Feedback"
+        tools:layout="@layout/activity_feedback"/>
+
+</navigation>
