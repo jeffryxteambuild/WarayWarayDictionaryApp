@@ -118,7 +118,9 @@ public class DbHelper extends SQLiteOpenHelper {
                 xexample = "",
                 xword_speak = "",
                 xcontributor = "",
-                xalso = "";
+                xalso = "",
+                xdialect = "",
+                xorigin = "";
 
         Cursor cursor = sqLiteDatabase.rawQuery(
                 "SELECT * FROM " + tableName + " WHERE word_search = '"+word+"';", null
@@ -135,7 +137,9 @@ public class DbHelper extends SQLiteOpenHelper {
             xword_speak = cursor.getBlob(cursor.getColumnIndex("word_speak"));
             xcontributor = cursor.getString(cursor.getColumnIndex("contributor"));
             xalso = cursor.getString(cursor.getColumnIndex("other_words"));
-            content = new Object[] {xword_search, xword, xfos, xdefinition, xtranslation, xexample, xword_speak, xcontributor, xalso};
+            xdialect = cursor.getString(cursor.getColumnIndex("dialect"));
+            xorigin = cursor.getString(cursor.getColumnIndex("origin"));
+            content = new Object[] {xword_search, xword, xfos, xdefinition, xtranslation, xexample, xword_speak, xcontributor, xalso, xdialect, xorigin};
         }
 
         sqLiteDatabase.close();

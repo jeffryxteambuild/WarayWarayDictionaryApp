@@ -265,9 +265,10 @@
                 android:id="@+id/content_origin"
                 android:paddingLeft="20dp"
                 android:paddingRight="10dp"
-                android:paddingBottom="30dp"
+                android:paddingBottom="10dp"
                 android:layout_marginLeft="10dp"
-                android:text="no entry" />
+                android:text="no entry"
+                android:textSize="16sp"/>
 
 
             <TextView

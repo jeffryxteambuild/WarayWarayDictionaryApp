@@ -122,6 +122,20 @@ public class result extends AppCompatActivity {
         example.setText((String)wordContent[5]);
         contributor.setText((String)wordContent[6]);
         other_words.setText((String)wordContent[7]);
+        if(wordContent[8] == null) {
+            dialect.setText("No Entry");
+        }
+        else {
+            dialect.setText((String)wordContent[8]);
+        }
+        if(wordContent[9] == null) {
+            origin.setText("No Entry");
+        }
+        else {
+            origin.setText((String)wordContent[9]);
+        }
+
+
         try {
             if(HomeFragment.audio_seleted == null) {
                 Toast.makeText(getApplicationContext(), "Audio not yet available ", Toast.LENGTH_LONG).show();
@@ -135,10 +149,7 @@ public class result extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "SAVING FAILED: " + e.getMessage(), Toast.LENGTH_LONG).show();
 
         }
-//        dialect.setText(HomeFragment.content[5]);
-//        origin
-//        contributor
-//        email
+
     }
 
 
@@ -152,7 +163,12 @@ public class result extends AppCompatActivity {
                 (String)content[4],
                 (String)content[5],
                 (String)content[7],
-                (String)content[8]
+                (String)content[8],
+                (String)content[9],
+                (String)content[10]
+
+
+
 
         };
         HomeFragment.content = str_content;

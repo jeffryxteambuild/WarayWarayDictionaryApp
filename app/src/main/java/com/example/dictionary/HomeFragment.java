@@ -404,7 +404,12 @@ public class HomeFragment extends Fragment {
                 (String)content[4],
                 (String)content[5],
                 (String)content[7],
-                (String)content[8]
+                (String)content[8],
+                (String)content[9],
+                (String)content[10],
+
+
+
         };
         intent.putExtra("content_key", str_content);
         intent.putExtra("word_key", HomeFragment.word_selected);
