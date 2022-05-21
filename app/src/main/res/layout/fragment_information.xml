@@ -8,7 +8,8 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/white">
 
         <TextView
             android:layout_width="wrap_content"
@@ -72,11 +73,13 @@
                 android:layout_marginHorizontal="10dp"
                 android:layout_marginTop="20dp"
                 android:elevation="10dp"
+                android:background="@color/spanishwhite"
                 app:cardCornerRadius="10dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:background="@color/spanishwhite">
 
                     <ImageView
                         android:id="@+id/stud1"
@@ -151,7 +154,8 @@
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:background="@color/spanishwhite">
 
                     <ImageView
                         android:id="@+id/stud2"

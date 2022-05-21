@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
+    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".HomeFragment">
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/searchBar"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
-        android:background="@color/burlywood" >
+        android:background="@color/bourbon"
+        app:layout_constraintTop_toTopOf="parent">
 
     <AutoCompleteTextView
         android:id="@+id/search_view"
@@ -33,139 +34,32 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/spinnerBar"
+    app:layout_constraintTop_toBottomOf="@id/searchBar">
 
-    <GridLayout
-        android:id="@+id/phrase_gridview"
+    <com.example.dictionary.CustomSpinner
+        android:id="@+id/spinner_category"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="100sp"
-        android:layout_marginRight="20sp"
-        android:layout_marginLeft="20sp"
-        android:layout_marginBottom="20sp"
-        android:rowCount="5"
-        android:columnCount="2">
+        android:layout_height="wrap_content"
+        android:dropDownVerticalOffset="50dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/bg_spinner"/>
 
+    <AdapterViewFlipper
+        android:id="@+id/viewFlipper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/spinner_category">
 
-        <Button
-            android:id="@+id/button_converse"
-            android:layout_gravity="fill"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:layout_margin="5sp"
-            android:background="@color/burlywood"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            android:text="@string/dialogue"
-            />
+    </AdapterViewFlipper>
 
-        <Button
-            android:id="@+id/button_greetings"
-            android:layout_gravity="fill"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:layout_margin="5sp"
-            android:background="@color/burlywood"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            android:text="@string/greet"
-            />
+</RelativeLayout>
 
-        <Button
-            android:id="@+id/button_directions"
-            android:layout_gravity="fill"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:layout_margin="5sp"
-            android:background="@color/burlywood"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            android:text="@string/directions"
-            />
-
-        <Button
-            android:id="@+id/button_food"
-            android:layout_gravity="fill"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:layout_margin="5sp"
-            android:background="@color/burlywood"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            android:text="@string/food"
-            />
-
-        <Button
-            android:id="@+id/button_time"
-            android:layout_gravity="fill"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:layout_margin="5sp"
-            android:background="@color/burlywood"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            android:text="@string/time"
-            />
-
-        <Button
-            android:id="@+id/button_family"
-            android:layout_gravity="fill"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:layout_margin="5sp"
-            android:background="@color/burlywood"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            android:text="@string/family"
-            />
-
-        <Button
-            android:id="@+id/button_numbers"
-            android:layout_gravity="fill"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:layout_margin="5sp"
-            android:background="@color/burlywood"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            android:text="@string/numbers"
-            />
-
-        <Button
-            android:id="@+id/button_colors"
-            android:layout_gravity="fill"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:layout_margin="5sp"
-            android:background="@color/burlywood"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            android:text="@string/colors"
-            />
-
-        <Button
-            android:id="@+id/button_emergency"
-            android:layout_gravity="fill"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:layout_margin="5sp"
-            android:background="@color/burlywood"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            android:text="@string/emergency"
-            />
-
-        <Button
-            android:id="@+id/button_sick"
-            android:layout_gravity="fill"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:layout_margin="5sp"
-            android:background="@color/burlywood"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            android:text="@string/sick"
-            />
-
-    </GridLayout>
-
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -26,8 +26,5 @@ public class feedback extends AppCompatActivity {
                 finish();
             }
 
-//            WebView webView = findViewById(R.id.feedback);
-//            webView.setWebViewClient(new WebViewClient());
-//            webView.loadUrl("https://forms.gle/btqjNciDpHxVY5Cr8");
     }
 }

@@ -15,7 +15,7 @@
             android:id="@+id/layoutToolbar"
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
-            android:background="@color/burlywood"
+            android:background="@color/bourbon"
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:paddingStart="15dp"
@@ -40,6 +40,12 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
+<!--            <Spinner-->
+<!--                android:id="@+id/spinner_category"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_margin="10dp" />-->
+
         </LinearLayout>
 
 
@@ -54,7 +60,6 @@
             app:layout_constraintVertical_bias="0.0"
             app:navGraph="@navigation/main"
             tools:layout_editor_absoluteX="0dp" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

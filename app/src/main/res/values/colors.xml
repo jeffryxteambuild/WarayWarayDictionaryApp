@@ -5,9 +5,14 @@
     <color name="cornsilk">#FFF8DC</color>
     <color name="saddlebrown">#8B4513</color>
     <color name="tan">#D2B48C</color>
-    <color name="burlywood">#DEB887</color>
     <color name="earthtone">#957755</color>
+    <color name="darkolive">#556B2F</color>
+    <color name="olive">#A9A454</color>
+    <color name="spanishwhite">#EFE4D4</color>
+    <color name="bourbon">#b07946</color>
+    <color name="teagreen">#CFECC9</color>
 
-<!--    <item name="android:textColor">#FF000000</item>-->
+
+    <!--    <item name="android:textColor">#FF000000</item>-->
 <!--    <item name="android:textSize">16sp</item>-->
 </resources>

@@ -15,6 +15,7 @@ import android.widget.SearchView;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.Spinner;
 
 import com.example.dictionary.dbdictionary.DbHelper;
 import com.google.android.material.navigation.NavigationView;

@@ -44,6 +44,8 @@ public class result extends AppCompatActivity {
     ImageButton voice_btn;
     MediaPlayer mediaPlayer;
 
+    boolean isSaved;
+
 //    String text_type = HomeFragment.word_selected;
 
     @Override
@@ -95,6 +97,7 @@ public class result extends AppCompatActivity {
         search.setAdapter(arrayAdapter);
         search.setThreshold(0);
 
+        isSaved = dbHelper.saved_word(HomeFragment.word_selected);
 
 
         search.setOnItemClickListener(new AdapterView.OnItemClickListener(){
@@ -168,8 +171,6 @@ public class result extends AppCompatActivity {
                 (String)content[10]
 
 
-
-
         };
         HomeFragment.content = str_content;
         HomeFragment.word_selected = word;
@@ -182,21 +183,23 @@ public class result extends AppCompatActivity {
 
     private void save_event(ImageButton save_btn) {
 
+        save_btn.setImageResource(isSaved ? R.drawable.ic_bookmarks : R.drawable.ic_bookmarks_on);
+
         save_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                boolean isSaved = dbHelper.saved_word(HomeFragment.word_selected);
+                isSaved = dbHelper.saved_word(HomeFragment.word_selected);
                 if(isSaved) {
                     Snackbar.make(findViewById(R.id.save), "WORD SAVED", Snackbar.LENGTH_SHORT).show();
-                    //Toast.makeText(getApplicationContext(), "WORD SAVED", Toast.LENGTH_LONG).show();
+
 
                 }
                 else {
-                    //Toast.makeText(getApplicationContext(), "WORD UNSAVED", Toast.LENGTH_LONG).show();
                     Snackbar.make(findViewById(R.id.save), "WORD UNSAVED", Snackbar.LENGTH_SHORT).show();
 
-
                 }
+
+                save_btn.setImageResource(isSaved ? R.drawable.ic_bookmarks : R.drawable.ic_bookmarks_on);
 
             }
         });

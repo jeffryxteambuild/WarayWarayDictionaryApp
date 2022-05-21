@@ -10,6 +10,7 @@
     <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/white"
         android:id="@+id/history_listview">
 
     </ListView>
@@ -25,6 +26,5 @@
         android:layout_gravity="bottom|right">
 
     </com.google.android.material.floatingactionbutton.FloatingActionButton>
-
 
 </FrameLayout>
