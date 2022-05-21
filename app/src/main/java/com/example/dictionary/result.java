@@ -1,5 +1,6 @@
 package com.example.dictionary;
 
+import android.content.Context;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Paint;
@@ -17,12 +18,14 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.SearchView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,10 +42,21 @@ public class result extends AppCompatActivity {
     AutoCompleteTextView search;
     TextView word, fos, definition, translation, example, dialect, origin, contributor, other_words;
     DbHelper dbHelper;
-    ArrayList<String> wordList;
     ImageButton save_btn;
     ImageButton voice_btn;
     MediaPlayer mediaPlayer;
+
+    Spinner spinnerFilter;
+    ArrayAdapter<String> farrayadapter;
+    ArrayAdapter arrayAdapter;
+
+
+    final String[] sorigin = {"All","Biliran", "Leyte", "Samar", "Northern Samar", "Eastern Samar", "Southern Leyte", "Ormoc", "Tacloban"};
+    String filteredOrigin = "All";
+
+    ArrayList<String>[] dataList;
+    ArrayList<String> wordList;
+    ArrayList<String> originList;
 
     boolean isSaved;
 
@@ -52,6 +66,11 @@ public class result extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
+
+
+        spinnerFilter = findViewById(R.id.filtersearch);
+        farrayadapter = new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, sorigin);
+        spinnerFilter.setAdapter(farrayadapter);
 
         save_btn = findViewById(R.id.save);
         voice_btn = findViewById(R.id.voice);
@@ -78,6 +97,7 @@ public class result extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                sendDataHome();
                 result.this.finish();
             }
         });
@@ -91,14 +111,11 @@ public class result extends AppCompatActivity {
         }catch (Exception e){}
 //        dbHelper = MainActivity.getDbHelper();
 
-        wordList = new ArrayList<>();
-        wordList.addAll(dbHelper.getWordList());
-        ArrayAdapter arrayAdapter = new ArrayAdapter<String>(this.getApplicationContext(), android.R.layout.simple_list_item_1,wordList);
-        search.setAdapter(arrayAdapter);
-        search.setThreshold(0);
+        dataList = dbHelper.getWordList();
+        wordList = new ArrayList<>(dataList[0]);
+        originList = new ArrayList<>(dataList[1]);
 
         isSaved = dbHelper.saved_word(HomeFragment.word_selected);
-
 
         search.setOnItemClickListener(new AdapterView.OnItemClickListener(){
 
@@ -110,6 +127,116 @@ public class result extends AppCompatActivity {
                 search.setText(null);
 
                 dbHelper.history_word(word);
+
+            }
+        });
+
+        int originIndex = 0;
+
+        for(int index = 0; index < sorigin.length; index++) {
+            if(filteredOrigin.equalsIgnoreCase(sorigin[index])) {
+                originIndex = index;
+                break;
+            }
+
+        }
+
+        spinnerFilter.setSelection(originIndex);
+
+        spinnerFilter.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                hideKeyboard(view);
+                filteredOrigin = sorigin[position];
+
+                search.setHint(filteredOrigin);
+
+
+                if (filteredOrigin.equalsIgnoreCase(sorigin[0])) {
+
+                    wordList.clear();
+                    originList.clear();
+                    //arrayAdapter.notifyDataSetChanged();
+
+                    for(int index = 0; index < dataList[0].size(); index++) {
+                        String wOrigin = dataList[1].get(index);
+                        String wWord = dataList[0].get(index);
+
+                        wordList.add(wWord);
+                        originList.add(wOrigin);
+
+                        //arrayAdapter.notifyDataSetChanged();
+
+                    }
+
+
+                }  else  {
+
+                    for(int index = 0; index < dataList[0].size(); index++) {
+                        String wOrigin = dataList[1].get(index);
+                        String wWord = dataList[0].get(index);
+
+                        if (!filteredOrigin.equalsIgnoreCase(wOrigin)) {
+                            originList.remove(wOrigin);
+                            wordList.remove(wWord);
+                        } else {
+                            if (!wordList.contains(wWord)) {
+                                wordList.add(wWord);
+                            }
+                            if (!originList.contains(wOrigin)) {
+                                originList.add(wOrigin);
+                            }
+                        }
+
+                        //arrayAdapter.notifyDataSetChanged();
+
+                    }
+
+                }
+
+                arrayAdapter = new ArrayAdapter(result.this, android.R.layout.simple_list_item_1, wordList);
+                arrayAdapter.setNotifyOnChange(true);
+                search.setAdapter(arrayAdapter);
+                search.setThreshold(0);
+
+
+//            Toast.makeText(getContext(), filteredOrigin +wordList.size()+" "+originList.size(), Toast.LENGTH_LONG).show();
+                arrayAdapter.notifyDataSetChanged();
+//            switch (position) {
+//                case 0:
+//                    filteredOrigin =
+//                    Toast.makeText(getContext(), "0", Toast.LENGTH_SHORT).show();
+//                    break;
+//                case 1:
+//                    Toast.makeText(getContext(), "1", Toast.LENGTH_SHORT).show();
+//                    break;
+//                case 2:
+//                    Toast.makeText(getContext(), "2", Toast.LENGTH_SHORT).show();
+//                    break;
+//                case 3:
+//                    Toast.makeText(getContext(), "3", Toast.LENGTH_SHORT).show();
+//                    break;
+//                case 4:
+//                    Toast.makeText(getContext(), "4", Toast.LENGTH_SHORT).show();
+//                    break;
+//                case 5:
+//                    Toast.makeText(getContext(), "5", Toast.LENGTH_SHORT).show();
+//                    break;
+//                case 6:
+//                    Toast.makeText(getContext(), "6", Toast.LENGTH_SHORT).show();
+//                    break;
+//                case 7:
+//                    Toast.makeText(getContext(), "7", Toast.LENGTH_SHORT).show();
+//                    break;
+//                case 8:
+//                    Toast.makeText(getContext(), "8", Toast.LENGTH_SHORT).show();
+//
+//            }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
 
             }
         });
@@ -249,9 +376,31 @@ public class result extends AppCompatActivity {
         HomeFragment.content = intent.getStringArrayExtra("content_key");
         HomeFragment.word_selected = intent.getStringExtra("word_key");
         HomeFragment.audio_seleted = intent.getByteArrayExtra("audio_key");
+        filteredOrigin = intent.getStringExtra("filteredOrigin");
 
     }
 
+    private void sendDataHome() {
+        Intent intent = new Intent();
+        intent.putExtra("filteredOrigin", filteredOrigin);
+        setResult(RESULT_OK, intent);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+        sendDataHome();
+    }
+
+    /***
+     *
+     * hide keyboard
+     */
+    private void hideKeyboard(View v) {
+        InputMethodManager inputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(v.getApplicationWindowToken(),0);
+    }
 }
 
 

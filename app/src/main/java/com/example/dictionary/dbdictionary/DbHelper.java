@@ -148,22 +148,34 @@ public class DbHelper extends SQLiteOpenHelper {
         return content;
     }
 
-    public ArrayList<String> getWordList() {
+    public ArrayList<String>[] getWordList() {
         SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
-        ArrayList<String> preloaded_wordList = new ArrayList<>();
+
+        ArrayList<String>[] preloaded_data = new ArrayList[2];
+        preloaded_data[0] = new ArrayList<>();
+        preloaded_data[1] = new ArrayList<>();
+
+
         String xword_search = "";
+        String xorigin = "";
 
         Cursor cursor = sqLiteDatabase.rawQuery(
-                "SELECT word_search FROM " + tableName, null
+                "SELECT word_search,origin FROM " + tableName, null
         );
+
+        long wordId = 0;
 
         while (cursor.moveToNext()){
             xword_search = cursor.getString(cursor.getColumnIndex("word_search"));
-            preloaded_wordList.add(xword_search);
+            xorigin = cursor.getString(cursor.getColumnIndex("origin"));
+            preloaded_data[0].add(xword_search);
+            preloaded_data[1].add(xorigin == null?String.valueOf(wordId) : xorigin);
+            wordId++;
+
         }
         sqLiteDatabase.close();
         cursor.close();
-        return preloaded_wordList;
+        return preloaded_data;
     }
 
     public ArrayList<String> getSavedList() {
